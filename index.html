@@ -681,6 +681,18 @@
     .stats-row { grid-template-columns: repeat(3, 1fr); }
     .slide { padding: 40px 24px; }
   }
+  /* ── BG ILLUSTRATIONS ── */
+  .bg-illustration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.13;
+  }
+  .bg-illustration svg {
+    width: 100%;
+    height: 100%;
+  }
 </style>
 </head>
 <body>
@@ -690,6 +702,53 @@
   <div class="bg-grid"></div>
   <div class="glow-orb"></div>
   <div class="glow-orb-2"></div>
+  <!-- BG: neural network nodes -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- connection lines -->
+      <line x1="720" y1="450" x2="400" y2="200" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="720" y1="450" x2="1100" y2="180" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="720" y1="450" x2="200" y2="550" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="720" y1="450" x2="1250" y2="600" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="720" y1="450" x2="900" y2="720" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="720" y1="450" x2="500" y2="750" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="400" y1="200" x2="1100" y2="180" stroke="#2D9E5F" stroke-width="1"/>
+      <line x1="200" y1="550" x2="500" y2="750" stroke="#2D9E5F" stroke-width="1"/>
+      <line x1="1100" y1="180" x2="1250" y2="600" stroke="#2D9E5F" stroke-width="1"/>
+      <line x1="900" y1="720" x2="1250" y2="600" stroke="#2D9E5F" stroke-width="1"/>
+      <line x1="400" y1="200" x2="200" y2="550" stroke="#2D9E5F" stroke-width="0.8"/>
+      <!-- satellite nodes -->
+      <line x1="400" y1="200" x2="300" y2="80" stroke="#2D9E5F" stroke-width="0.8"/>
+      <line x1="400" y1="200" x2="580" y2="100" stroke="#2D9E5F" stroke-width="0.8"/>
+      <line x1="1100" y1="180" x2="1020" y2="60" stroke="#2D9E5F" stroke-width="0.8"/>
+      <line x1="1100" y1="180" x2="1300" y2="100" stroke="#2D9E5F" stroke-width="0.8"/>
+      <line x1="200" y1="550" x2="80" y2="480" stroke="#2D9E5F" stroke-width="0.8"/>
+      <line x1="200" y1="550" x2="100" y2="680" stroke="#2D9E5F" stroke-width="0.8"/>
+      <!-- central node -->
+      <circle cx="720" cy="450" r="28" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="720" cy="450" r="14" fill="#2D9E5F"/>
+      <!-- main nodes -->
+      <circle cx="400" cy="200" r="14" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="400" cy="200" r="7" fill="#2D9E5F"/>
+      <circle cx="1100" cy="180" r="14" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="1100" cy="180" r="7" fill="#2D9E5F"/>
+      <circle cx="200" cy="550" r="14" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="200" cy="550" r="7" fill="#2D9E5F"/>
+      <circle cx="1250" cy="600" r="14" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="1250" cy="600" r="7" fill="#2D9E5F"/>
+      <circle cx="900" cy="720" r="14" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="900" cy="720" r="7" fill="#2D9E5F"/>
+      <circle cx="500" cy="750" r="14" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="500" cy="750" r="7" fill="#2D9E5F"/>
+      <!-- small satellite nodes -->
+      <circle cx="300" cy="80" r="7" fill="#2D9E5F"/>
+      <circle cx="580" cy="100" r="7" fill="#2D9E5F"/>
+      <circle cx="1020" cy="60" r="7" fill="#2D9E5F"/>
+      <circle cx="1300" cy="100" r="7" fill="#2D9E5F"/>
+      <circle cx="80" cy="480" r="7" fill="#2D9E5F"/>
+      <circle cx="100" cy="680" r="7" fill="#2D9E5F"/>
+    </svg>
+  </div>
   <div class="tag">
     <span class="tag-dot"></span>
     ИИ-ассистент для команд
@@ -709,6 +768,57 @@
 <!-- SLIDE 2: PROBLEM -->
 <section class="slide slide-2">
   <div class="bg-grid"></div>
+  <!-- BG: floating task cards / chaos -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- scattered task rectangles -->
+      <rect x="60" y="80" width="180" height="60" rx="8" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="70" y="93" width="80" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="70" y="108" width="120" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+      <rect x="70" y="120" width="100" height="6" rx="3" fill="#2D9E5F" opacity="0.3"/>
+
+      <rect x="1180" y="60" width="200" height="60" rx="8" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="1192" y="73" width="90" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="1192" y="88" width="140" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+      <rect x="1192" y="100" width="110" height="6" rx="3" fill="#2D9E5F" opacity="0.3"/>
+
+      <rect x="80" y="720" width="180" height="60" rx="8" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="92" y="733" width="80" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="92" y="748" width="120" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="1200" y="760" width="180" height="60" rx="8" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="1212" y="773" width="90" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="1212" y="788" width="120" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="1300" y="380" width="120" height="50" rx="8" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="1312" y="393" width="60" height="7" rx="3" fill="#2D9E5F"/>
+      <rect x="1312" y="407" width="80" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="20" y="400" width="120" height="50" rx="8" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="32" y="413" width="60" height="7" rx="3" fill="#2D9E5F"/>
+      <rect x="32" y="427" width="80" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <!-- warning / clock icons scattered -->
+      <circle cx="700" cy="100" r="28" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="700" y1="84" x2="700" y2="100" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="700" y1="100" x2="712" y2="108" stroke="#2D9E5F" stroke-width="2"/>
+
+      <circle cx="200" cy="300" r="20" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="200" y1="288" x2="200" y2="300" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="200" y1="300" x2="209" y2="306" stroke="#2D9E5F" stroke-width="2"/>
+
+      <circle cx="1260" cy="250" r="20" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <line x1="1260" y1="238" x2="1260" y2="250" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="1260" y1="250" x2="1269" y2="256" stroke="#2D9E5F" stroke-width="2"/>
+
+      <!-- mute icons -->
+      <path d="M 350 680 m -16 -8 l 0 16 l 10 0 l 14 12 l 0 -40 l -14 12 z" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="356" y1="660" x2="374" y2="700" stroke="#2D9E5F" stroke-width="2.5"/>
+
+      <path d="M 1100 800 m -16 -8 l 0 16 l 10 0 l 14 12 l 0 -40 l -14 12 z" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="1106" y1="780" x2="1124" y2="820" stroke="#2D9E5F" stroke-width="2.5"/>
+    </svg>
+  </div>
   <span class="slide-label">Проблема</span>
   <h2>Контроль сжирает<br>время менеджера</h2>
   <div class="pain-grid">
@@ -735,6 +845,44 @@
 <section class="slide slide-3">
   <div class="bg-grid"></div>
   <div class="bg-lines"></div>
+  <!-- BG: day arc with sun/moon -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- large arc representing day -->
+      <path d="M 100 820 Q 720 -100 1340 820" fill="none" stroke="#2D9E5F" stroke-width="2" stroke-dasharray="12 8"/>
+      <!-- sunrise dot -->
+      <circle cx="100" cy="820" r="16" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="100" cy="820" r="8" fill="#2D9E5F"/>
+      <!-- rays -->
+      <line x1="100" y1="798" x2="100" y2="790" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="118" y1="804" x2="124" y2="798" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="82" y1="804" x2="76" y2="798" stroke="#2D9E5F" stroke-width="2"/>
+      <!-- midday sun at top of arc -->
+      <circle cx="720" cy="240" r="22" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="720" cy="240" r="10" fill="#2D9E5F"/>
+      <line x1="720" y1="210" x2="720" y2="200" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="720" y1="270" x2="720" y2="280" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="690" y1="240" x2="680" y2="240" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="750" y1="240" x2="760" y2="240" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="699" y1="219" x2="692" y2="212" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="741" y1="219" x2="748" y2="212" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="699" y1="261" x2="692" y2="268" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="741" y1="261" x2="748" y2="268" stroke="#2D9E5F" stroke-width="2"/>
+      <!-- moon at end -->
+      <path d="M 1340 820 Q 1356 800 1356 778 Q 1340 784 1324 778 Q 1324 800 1340 820 Z" fill="#2D9E5F"/>
+      <!-- stars near moon -->
+      <circle cx="1300" cy="750" r="3" fill="#2D9E5F"/>
+      <circle cx="1380" cy="760" r="2.5" fill="#2D9E5F"/>
+      <circle cx="1360" cy="730" r="2" fill="#2D9E5F"/>
+      <circle cx="1310" cy="720" r="2" fill="#2D9E5F"/>
+      <!-- week graph at bottom right -->
+      <rect x="1100" y="760" width="20" height="60" rx="4" fill="#2D9E5F" opacity="0.5"/>
+      <rect x="1128" y="740" width="20" height="80" rx="4" fill="#2D9E5F" opacity="0.6"/>
+      <rect x="1156" y="720" width="20" height="100" rx="4" fill="#2D9E5F" opacity="0.7"/>
+      <rect x="1184" y="700" width="20" height="120" rx="4" fill="#2D9E5F" opacity="0.85"/>
+      <rect x="1212" y="680" width="20" height="140" rx="4" fill="#2D9E5F"/>
+    </svg>
+  </div>
   <span class="slide-label">Как работает</span>
   <h2>День с Андреем</h2>
   <div class="timeline">
@@ -788,6 +936,35 @@
 <!-- SLIDE 4: EVENING REPORT -->
 <section class="slide slide-4">
   <div class="bg-grid"></div>
+  <!-- BG: analytics chart -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- large background bar chart -->
+      <rect x="80" y="400" width="60" height="460" rx="6" fill="#2D9E5F"/>
+      <rect x="160" y="300" width="60" height="560" rx="6" fill="#2D9E5F"/>
+      <rect x="240" y="480" width="60" height="380" rx="6" fill="#2D9E5F"/>
+      <rect x="320" y="250" width="60" height="610" rx="6" fill="#2D9E5F"/>
+      <rect x="400" y="350" width="60" height="510" rx="6" fill="#2D9E5F"/>
+      <!-- line chart right side -->
+      <polyline points="900,600 980,480 1060,520 1140,360 1220,400 1300,280 1380,320" fill="none" stroke="#2D9E5F" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="900" cy="600" r="7" fill="#2D9E5F"/>
+      <circle cx="980" cy="480" r="7" fill="#2D9E5F"/>
+      <circle cx="1060" cy="520" r="7" fill="#2D9E5F"/>
+      <circle cx="1140" cy="360" r="7" fill="#2D9E5F"/>
+      <circle cx="1220" cy="400" r="7" fill="#2D9E5F"/>
+      <circle cx="1300" cy="280" r="7" fill="#2D9E5F"/>
+      <circle cx="1380" cy="320" r="7" fill="#2D9E5F"/>
+      <!-- checkmarks top right -->
+      <polyline points="1260,100 1272,115 1295,88" fill="none" stroke="#2D9E5F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="1277" cy="101" r="22" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <polyline points="1330,160 1342,175 1365,148" fill="none" stroke="#2D9E5F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="1347" cy="161" r="22" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <!-- x cross top left -->
+      <line x1="148" y1="128" x2="172" y2="152" stroke="#2D9E5F" stroke-width="3" stroke-linecap="round"/>
+      <line x1="172" y1="128" x2="148" y2="152" stroke="#2D9E5F" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="160" cy="140" r="22" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+    </svg>
+  </div>
   <span class="slide-label">Вечерний разбор</span>
   <h2>Отчёт без прикрас</h2>
   <div class="report-card">
@@ -831,6 +1008,47 @@
 <!-- SLIDE 5: TELEGRAM -->
 <section class="slide slide-5">
   <div class="bg-grid"></div>
+  <!-- BG: chat bubbles floating -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- large bubble left -->
+      <rect x="40" y="120" width="260" height="70" rx="18" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <polygon points="56,190 40,210 76,190" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="60" y="140" width="140" height="10" rx="5" fill="#2D9E5F" opacity="0.7"/>
+      <rect x="60" y="158" width="200" height="8" rx="4" fill="#2D9E5F" opacity="0.4"/>
+
+      <!-- bubble top right -->
+      <rect x="1100" y="80" width="300" height="70" rx="18" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <polygon points="1384,90 1400,70 1384,110" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="1120" y="100" width="180" height="10" rx="5" fill="#2D9E5F" opacity="0.7"/>
+      <rect x="1120" y="118" width="240" height="8" rx="4" fill="#2D9E5F" opacity="0.4"/>
+
+      <!-- small bubble bottom left -->
+      <rect x="60" y="720" width="200" height="56" rx="16" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <polygon points="74,776 60,796 94,776" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="78" y="736" width="110" height="9" rx="4" fill="#2D9E5F" opacity="0.6"/>
+      <rect x="78" y="752" width="80" height="7" rx="3" fill="#2D9E5F" opacity="0.3"/>
+
+      <!-- small bubble bottom right -->
+      <rect x="1160" y="760" width="220" height="56" rx="16" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <polygon points="1366,770 1380,750 1366,810" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <rect x="1178" y="778" width="130" height="9" rx="4" fill="#2D9E5F" opacity="0.6"/>
+      <rect x="1178" y="794" width="90" height="7" rx="3" fill="#2D9E5F" opacity="0.3"/>
+
+      <!-- notification bell top center -->
+      <path d="M720,60 Q720,42 740,42 Q760,42 760,60 L764,90 Q770,96 770,102 L710,102 Q710,96 716,90 Z" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <line x1="733" y1="102" x2="747" y2="108" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="740" cy="42" r="5" fill="#2D9E5F"/>
+      <!-- dot indicator -->
+      <circle cx="762" cy="50" r="8" fill="#2D9E5F"/>
+
+      <!-- signal waves right -->
+      <path d="M1360,430 Q1380,420 1380,450 Q1380,480 1360,470" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <path d="M1350,415 Q1400,400 1400,450 Q1400,500 1350,485" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <path d="M1340,400 Q1420,378 1420,450 Q1420,522 1340,500" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="1350" cy="450" r="8" fill="#2D9E5F"/>
+    </svg>
+  </div>
   <div class="left">
     <span class="slide-label">Где живёт</span>
     <h2>Прямо<br>в Telegram</h2>
@@ -884,6 +1102,50 @@
 <!-- SLIDE 6: INTEGRATIONS -->
 <section class="slide slide-6">
   <div class="bg-grid"></div>
+  <!-- BG: hub and spoke integration diagram -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- central hub -->
+      <circle cx="720" cy="450" r="40" fill="none" stroke="#2D9E5F" stroke-width="2.5"/>
+      <circle cx="720" cy="450" r="20" fill="#2D9E5F"/>
+      <!-- spokes to services -->
+      <line x1="720" y1="450" x2="200" y2="180" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="720" y1="450" x2="1240" y2="180" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="720" y1="450" x2="120" y2="580" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="720" y1="450" x2="1320" y2="580" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="720" y1="450" x2="400" y2="780" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="720" y1="450" x2="1040" y2="780" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="720" y1="450" x2="720" y2="100" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <!-- service nodes -->
+      <rect x="160" y="150" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="172" y="165" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="172" y="180" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="1200" y="150" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="1212" y="165" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="1212" y="180" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="80" y="550" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="92" y="565" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="92" y="580" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="1280" y="550" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="1292" y="565" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="1292" y="580" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="360" y="750" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="372" y="765" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="372" y="780" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="1000" y="750" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="1012" y="765" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="1012" y="780" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+
+      <rect x="680" y="60" width="80" height="60" rx="12" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <rect x="692" y="75" width="56" height="8" rx="4" fill="#2D9E5F"/>
+      <rect x="692" y="90" width="40" height="6" rx="3" fill="#2D9E5F" opacity="0.5"/>
+    </svg>
+  </div>
   <span class="slide-label">Интеграции</span>
   <h2>Подключается к вашему<br>таск-трекеру</h2>
   <div class="integrations-grid">
@@ -922,6 +1184,56 @@
 <!-- SLIDE 7: WHO NEEDS ANDREY -->
 <section class="slide slide-7">
   <div class="bg-grid"></div>
+  <!-- BG: world map dots + people locations connected -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- simplified world map outline shapes -->
+      <ellipse cx="720" cy="450" rx="680" ry="360" fill="none" stroke="#2D9E5F" stroke-width="1" opacity="0.4"/>
+      <ellipse cx="720" cy="450" rx="500" ry="260" fill="none" stroke="#2D9E5F" stroke-width="0.8" opacity="0.3"/>
+      <!-- latitude lines -->
+      <line x1="40" y1="450" x2="1400" y2="450" stroke="#2D9E5F" stroke-width="0.8" opacity="0.3"/>
+      <line x1="80" y1="300" x2="1360" y2="300" stroke="#2D9E5F" stroke-width="0.8" opacity="0.25"/>
+      <line x1="80" y1="600" x2="1360" y2="600" stroke="#2D9E5F" stroke-width="0.8" opacity="0.25"/>
+      <!-- longitude lines -->
+      <line x1="720" y1="90" x2="720" y2="810" stroke="#2D9E5F" stroke-width="0.8" opacity="0.3"/>
+      <line x1="380" y1="100" x2="380" y2="800" stroke="#2D9E5F" stroke-width="0.8" opacity="0.2"/>
+      <line x1="1060" y1="100" x2="1060" y2="800" stroke="#2D9E5F" stroke-width="0.8" opacity="0.2"/>
+      <!-- city dots (team members in different locations) -->
+      <circle cx="340" cy="280" r="10" fill="#2D9E5F"/>
+      <circle cx="340" cy="280" r="18" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <!-- person icon above -->
+      <circle cx="340" cy="254" r="6" fill="#2D9E5F"/>
+      <path d="M328,268 Q340,260 352,268" fill="#2D9E5F"/>
+
+      <circle cx="820" cy="320" r="10" fill="#2D9E5F"/>
+      <circle cx="820" cy="320" r="18" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <circle cx="820" cy="294" r="6" fill="#2D9E5F"/>
+      <path d="M808,308 Q820,300 832,308" fill="#2D9E5F"/>
+
+      <circle cx="1120" cy="360" r="10" fill="#2D9E5F"/>
+      <circle cx="1120" cy="360" r="18" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <circle cx="1120" cy="334" r="6" fill="#2D9E5F"/>
+      <path d="M1108,348 Q1120,340 1132,348" fill="#2D9E5F"/>
+
+      <circle cx="540" cy="560" r="10" fill="#2D9E5F"/>
+      <circle cx="540" cy="560" r="18" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <circle cx="540" cy="534" r="6" fill="#2D9E5F"/>
+      <path d="M528,548 Q540,540 552,548" fill="#2D9E5F"/>
+
+      <circle cx="980" cy="520" r="10" fill="#2D9E5F"/>
+      <circle cx="980" cy="520" r="18" fill="none" stroke="#2D9E5F" stroke-width="1.5"/>
+      <circle cx="980" cy="494" r="6" fill="#2D9E5F"/>
+      <path d="M968,508 Q980,500 992,508" fill="#2D9E5F"/>
+
+      <!-- connecting lines between team members -->
+      <line x1="340" y1="280" x2="820" y2="320" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 4"/>
+      <line x1="820" y1="320" x2="1120" y2="360" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 4"/>
+      <line x1="340" y1="280" x2="540" y2="560" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 4"/>
+      <line x1="820" y1="320" x2="540" y2="560" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 4"/>
+      <line x1="820" y1="320" x2="980" y2="520" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 4"/>
+      <line x1="1120" y1="360" x2="980" y2="520" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 4"/>
+    </svg>
+  </div>
   <span class="slide-label">Кому подойдёт</span>
   <h2>Любой команде<br>где есть задачи</h2>
   <div class="use-cases">
@@ -961,6 +1273,44 @@
 <section class="slide slide-8">
   <div class="bg-grid"></div>
   <div class="bg-glow"></div>
+  <!-- BG: rocket launching upward with orbit rings -->
+  <div class="bg-illustration">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- orbit rings around center -->
+      <ellipse cx="720" cy="500" rx="500" ry="160" fill="none" stroke="#2D9E5F" stroke-width="1.5" stroke-dasharray="10 6"/>
+      <ellipse cx="720" cy="500" rx="340" ry="110" fill="none" stroke="#2D9E5F" stroke-width="1.2" stroke-dasharray="8 6"/>
+      <ellipse cx="720" cy="500" rx="180" ry="60" fill="none" stroke="#2D9E5F" stroke-width="1" stroke-dasharray="6 5"/>
+      <!-- rocket body -->
+      <path d="M720,100 L700,200 L700,340 L720,360 L740,340 L740,200 Z" fill="none" stroke="#2D9E5F" stroke-width="2.5"/>
+      <!-- rocket nose -->
+      <path d="M700,200 Q720,120 740,200" fill="#2D9E5F" opacity="0.6"/>
+      <!-- rocket fins -->
+      <path d="M700,320 L672,360 L700,350 Z" fill="#2D9E5F" opacity="0.7"/>
+      <path d="M740,320 L768,360 L740,350 Z" fill="#2D9E5F" opacity="0.7"/>
+      <!-- rocket window -->
+      <circle cx="720" cy="270" r="18" fill="none" stroke="#2D9E5F" stroke-width="2"/>
+      <circle cx="720" cy="270" r="9" fill="#2D9E5F" opacity="0.6"/>
+      <!-- exhaust flame -->
+      <path d="M706,360 Q720,420 734,360" fill="#2D9E5F" opacity="0.4"/>
+      <path d="M710,360 Q720,400 730,360" fill="#2D9E5F" opacity="0.6"/>
+      <!-- stars scattered -->
+      <circle cx="200" cy="150" r="3" fill="#2D9E5F"/>
+      <circle cx="340" cy="80" r="2.5" fill="#2D9E5F"/>
+      <circle cx="160" cy="320" r="2" fill="#2D9E5F"/>
+      <circle cx="420" cy="200" r="3" fill="#2D9E5F"/>
+      <circle cx="1020" cy="120" r="3" fill="#2D9E5F"/>
+      <circle cx="1200" cy="80" r="2.5" fill="#2D9E5F"/>
+      <circle cx="1300" cy="220" r="2" fill="#2D9E5F"/>
+      <circle cx="1100" cy="300" r="3" fill="#2D9E5F"/>
+      <circle cx="260" cy="600" r="2.5" fill="#2D9E5F"/>
+      <circle cx="1180" cy="620" r="2.5" fill="#2D9E5F"/>
+      <!-- orbit dots (satellites) -->
+      <circle cx="220" cy="500" r="8" fill="#2D9E5F"/>
+      <circle cx="1220" cy="500" r="8" fill="#2D9E5F"/>
+      <circle cx="400" cy="380" r="6" fill="#2D9E5F"/>
+      <circle cx="1040" cy="380" r="6" fill="#2D9E5F"/>
+    </svg>
+  </div>
   <div class="content">
     <p class="slide-label" style="text-align:center;">Хочешь такого же?</p>
     <div class="big-text">
