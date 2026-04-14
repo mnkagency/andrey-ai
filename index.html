@@ -32,6 +32,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     position: relative;
     overflow: hidden;
     padding: 60px 80px;
@@ -51,7 +53,6 @@
   /* ── SLIDE 1: HERO ── */
   .slide-1 {
     background: var(--dark);
-    align-items: flex-start;
   }
   .slide-1 .glow-orb {
     position: absolute;
@@ -123,19 +124,18 @@
     font-size: 18px;
     color: var(--muted);
     max-width: 560px;
+    margin: 0 auto;
     line-height: 1.6;
     position: relative;
-    border-left: 2px solid var(--accent);
-    padding-left: 20px;
+    border-top: 2px solid var(--accent);
+    padding-top: 20px;
   }
   .slide-1 .avatar-row {
-    position: absolute;
-    right: 80px;
-    bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    margin-top: 40px;
   }
   .avatar-circle {
     width: 120px;
@@ -191,12 +191,14 @@
     line-height: 1.1;
     margin-bottom: 48px;
     max-width: 700px;
+    margin: 0 auto;
   }
   .pain-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 900px;
+    margin: 0 auto;
   }
   .pain-card {
     background: var(--card);
@@ -252,6 +254,7 @@
     flex-direction: column;
     gap: 0;
     max-width: 700px;
+    margin: 0 auto;
     position: relative;
   }
   .timeline-item {
@@ -312,6 +315,7 @@
     color: var(--muted);
     line-height: 1.6;
     max-width: 520px;
+    margin: 0 auto;
   }
 
   /* ── SLIDE 4: EVENING REPORT ── */
@@ -324,6 +328,7 @@
     border-radius: 20px;
     padding: 32px;
     max-width: 860px;
+    margin: 0 auto;
     width: 100%;
   }
   .report-header {
@@ -385,6 +390,7 @@
     gap: 16px;
     margin-top: 28px;
     max-width: 860px;
+    margin: 0 auto;
     width: 100%;
   }
   .stat-box {
@@ -407,12 +413,12 @@
   /* ── SLIDE 5: WHERE ANDREY LIVES ── */
   .slide-5 {
     background: var(--dark);
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 40px;
   }
-  .slide-5 .left { flex: 1; }
-  .slide-5 .right { flex: 1; display: flex; justify-content: center; }
+  .slide-5 .left { text-align: center; }
+  .slide-5 .right { display: flex; justify-content: center; }
   .tg-mockup {
     width: 320px;
     background: #17212B;
@@ -477,6 +483,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     max-width: 860px;
+    margin: 0 auto;
     margin-top: 40px;
   }
   .int-card {
@@ -533,6 +540,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     max-width: 900px;
+    margin: 0 auto;
     margin-top: 36px;
   }
   .use-case {
@@ -598,6 +606,7 @@
     color: var(--muted);
     margin-bottom: 48px;
     max-width: 500px;
+    margin: 0 auto;
     line-height: 1.6;
   }
   .cta-btn {
@@ -670,8 +679,7 @@
     .integrations-grid { grid-template-columns: repeat(2, 1fr); }
     .use-cases { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(3, 1fr); }
-    .slide-5 { flex-direction: column; gap: 40px; }
-    .slide-1 .avatar-row { position: static; align-items: flex-start; margin-top: 40px; flex-direction: row; }
+    .slide { padding: 40px 24px; }
   }
 </style>
 </head>
@@ -826,10 +834,10 @@
   <div class="left">
     <span class="slide-label">Где живёт</span>
     <h2>Прямо<br>в Telegram</h2>
-    <p style="font-size:17px; color: var(--muted); line-height:1.7; max-width:420px;">
+    <p style="font-size:17px; color: var(--muted); line-height:1.7; max-width:420px; margin: 0 auto;">
       Никаких новых приложений. Никаких логинов и онбординга. Андрей просто пишет в чат где уже сидит вся команда.
     </p>
-    <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;">
+    <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
       <div style="display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 20px;">
         <span style="font-size:20px;">📱</span>
         <span style="font-size:14px; font-weight:600;">Telegram Bot</span>
@@ -905,7 +913,7 @@
       <p>и другие<br>таск-трекеры</p>
     </div>
   </div>
-  <p style="margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 600px; line-height: 1.7;">
+  <p style="margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 600px; line-height: 1.7; margin-left: auto; margin-right: auto;">
     Андрей читает задачи, понимает что актуально сегодня и на этой основе строит утренний брифинг и вечерний разбор.
   </p>
   <div class="page-num">06 / 08</div>
