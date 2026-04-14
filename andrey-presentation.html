@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Андрей — ИИ который следит за твоей командой</title>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #0D0D0D;
+    --mid: #161616;
+    --card: #1E1E1E;
+    --accent: #1A6B3C;
+    --accent2: #E05A2B;
+    --text: #F0F0F0;
+    --muted: #888;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Golos Text', sans-serif;
+    background: #000;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  .slide {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 80px;
+  }
+
+  /* ── UNIVERSAL BG GRID ── */
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(26,107,60,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,107,60,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* ── SLIDE 1: HERO ── */
+  .slide-1 {
+    background: var(--dark);
+    align-items: flex-start;
+  }
+  .slide-1 .glow-orb {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,107,60,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .slide-1 .glow-orb-2 {
+    position: absolute;
+    left: 30%;
+    bottom: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,75,110,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .slide-1 .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(26,107,60,0.12);
+    border: 1px solid rgba(26,107,60,0.35);
+    color: var(--accent);
+    font-family: 'Golos Text', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 40px;
+  }
+  .slide-1 .tag-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .slide-1 h1 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+    max-width: 800px;
+    position: relative;
+  }
+  .slide-1 h1 .name {
+    color: var(--accent);
+    display: block;
+  }
+  .slide-1 h1 .sub {
+    color: var(--text);
+    display: block;
+    font-size: clamp(24px, 3.5vw, 48px);
+    font-weight: 400;
+    margin-top: 12px;
+    opacity: 0.85;
+  }
+  .slide-1 .desc {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.6;
+    position: relative;
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+  }
+  .slide-1 .avatar-row {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--accent);
+    box-shadow: 0 0 40px rgba(26,107,60,0.35), 0 0 80px rgba(26,107,60,0.12);
+    position: relative;
+  }
+  .avatar-circle::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(26,107,60,0.25);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100%{transform:scale(1); opacity:0.5}
+    50%{transform:scale(1.08); opacity:0.15}
+  }
+  .avatar-label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── SLIDE 2: PROBLEM ── */
+  .slide-2 {
+    background: var(--mid);
+  }
+  .slide-2 .slide-label {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 20px;
+  }
+  .slide-2 h2 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: clamp(32px, 4vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+  }
+  .pain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pain-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent2);
+  }
+  .pain-card .icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .pain-card h3 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .pain-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── SLIDE 3: WHAT ANDREY DOES ── */
+  .slide-3 {
+    background: var(--dark);
+  }
+  .slide-3 .bg-lines {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 400px;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(26,107,60,0.06) 39px,
+      rgba(26,107,60,0.06) 40px
+    );
+  }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 700px;
+    position: relative;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 24px;
+    position: relative;
+    padding-bottom: 36px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 48px;
+  }
+  .timeline-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-line {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    opacity: 0.3;
+    margin-top: 4px;
+  }
+  .timeline-item:last-child .timeline-line { display: none; }
+  .timeline-content {
+    padding-top: 8px;
+  }
+  .timeline-time {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .timeline-content h3 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .timeline-content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 520px;
+  }
+
+  /* ── SLIDE 4: EVENING REPORT ── */
+  .slide-4 {
+    background: var(--mid);
+  }
+  .report-card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 860px;
+    width: 100%;
+  }
+  .report-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .report-header .bot-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(26,107,60,0.18);
+    border: 1px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .report-header .bot-info strong {
+    display: block;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .report-header .bot-info span {
+    font-size: 12px; color: var(--muted);
+  }
+  .report-header .time {
+    margin-left: auto;
+    font-size: 12px; color: var(--muted);
+  }
+  .report-message {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .report-message .person-name { color: var(--accent); font-weight: 600; }
+  .report-message .done { color: #4CAF50; }
+  .report-message .miss { color: var(--accent2); }
+  .report-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .rtag {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+  .rtag.green { background: rgba(76,175,80,0.15); color: #4CAF50; border: 1px solid rgba(76,175,80,0.3); }
+  .rtag.red { background: rgba(255,75,110,0.15); color: var(--accent2); border: 1px solid rgba(255,75,110,0.3); }
+  .rtag.blue { background: rgba(26,107,60,0.12); color: var(--accent); border: 1px solid rgba(26,107,60,0.25); }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+    max-width: 860px;
+    width: 100%;
+  }
+  .stat-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; color: var(--muted); }
+
+  /* ── SLIDE 5: WHERE ANDREY LIVES ── */
+  .slide-5 {
+    background: var(--dark);
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+  .slide-5 .left { flex: 1; }
+  .slide-5 .right { flex: 1; display: flex; justify-content: center; }
+  .tg-mockup {
+    width: 320px;
+    background: #17212B;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(26,107,60,0.12);
+  }
+  .tg-header {
+    background: #232E3C;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tg-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #2D9E5F 0%, #0050FF 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 14px; font-weight: 900; color: #000;
+  }
+  .tg-info strong { display: block; font-size: 14px; }
+  .tg-info span { font-size: 12px; color: #4DB6AC; }
+  .tg-messages {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #0E1621;
+    min-height: 280px;
+  }
+  .tg-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .tg-msg.bot {
+    background: #2B5278;
+    border-radius: 14px 14px 14px 4px;
+    align-self: flex-start;
+    color: #E8F4FD;
+  }
+  .tg-msg .tg-time {
+    display: block;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+    margin-top: 4px;
+  }
+  .tg-msg .highlight { color: #2D9E5F; font-weight: 600; }
+  .tg-msg .warn { color: #FF6B6B; }
+
+  /* ── SLIDE 6: INTEGRATIONS ── */
+  .slide-6 {
+    background: var(--mid);
+  }
+  .integrations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 860px;
+    margin-top: 40px;
+  }
+  .int-card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .int-card:hover { border-color: var(--accent); }
+  .int-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 28px;
+  }
+  .int-card h4 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .int-card p { font-size: 12px; color: var(--muted); }
+  .int-plus {
+    background: var(--card);
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .int-plus .plus-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px dashed var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    color: var(--muted);
+  }
+  .int-plus p { font-size: 12px; color: var(--muted); }
+
+  /* ── SLIDE 7: WHO NEEDS ANDREY ── */
+  .slide-7 {
+    background: var(--dark);
+  }
+  .use-cases {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin-top: 36px;
+  }
+  .use-case {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .use-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: rgba(26,107,60,0.12);
+    border: 1px solid rgba(26,107,60,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .use-text h3 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .use-text p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── SLIDE 8: CTA ── */
+  .slide-8 {
+    background: var(--dark);
+    align-items: center;
+    text-align: center;
+  }
+  .slide-8 .bg-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(26,107,60,0.1) 0%, transparent 65%);
+  }
+  .slide-8 .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(26,107,60,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,107,60,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .slide-8 .content { position: relative; }
+  .slide-8 .big-text {
+    font-family: 'Golos Text', sans-serif;
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+  }
+  .slide-8 .big-text .accent-line {
+    color: var(--accent);
+    display: block;
+  }
+  .slide-8 .sub-text {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 48px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    box-shadow: 0 0 40px rgba(26,107,60,0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px rgba(26,107,60,0.6);
+  }
+  .cta-handle {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+  .slide-8 .small-note {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  /* shared */
+  .slide-label {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .slide h2 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    margin-bottom: 36px;
+  }
+
+  /* page divider */
+  .page-num {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+  }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    .slide { padding: 40px 28px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .integrations-grid { grid-template-columns: repeat(2, 1fr); }
+    .use-cases { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(3, 1fr); }
+    .slide-5 { flex-direction: column; gap: 40px; }
+    .slide-1 .avatar-row { position: static; align-items: flex-start; margin-top: 40px; flex-direction: row; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: HERO -->
+<section class="slide slide-1">
+  <div class="bg-grid"></div>
+  <div class="glow-orb"></div>
+  <div class="glow-orb-2"></div>
+  <div class="tag">
+    <span class="tag-dot"></span>
+    ИИ-ассистент для команд
+  </div>
+  <h1>
+    <span class="name">Андрей</span>
+    <span class="sub">ИИ который следит<br>за твоей командой</span>
+  </h1>
+  <p class="desc">Не ты за ним — он за вами. Читает задачи, устраивает брифинги, собирает отчёты и не даёт никому пропасть с радара.</p>
+  <div class="avatar-row">
+    <div class="avatar-circle">А</div>
+    <span class="avatar-label">online</span>
+  </div>
+  <div class="page-num">01 / 08</div>
+</section>
+
+<!-- SLIDE 2: PROBLEM -->
+<section class="slide slide-2">
+  <div class="bg-grid"></div>
+  <span class="slide-label">Проблема</span>
+  <h2>Контроль сжирает<br>время менеджера</h2>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <span class="icon">📋</span>
+      <h3>Задачи висят</h3>
+      <p>Никто не обновляет статусы. Что реально происходит — загадка до пятницы.</p>
+    </div>
+    <div class="pain-card">
+      <span class="icon">🔇</span>
+      <h3>Молчание = норма</h3>
+      <p>Люди пропадают из чата и возвращаются только когда дедлайн горит.</p>
+    </div>
+    <div class="pain-card">
+      <span class="icon">🔄</span>
+      <h3>Ручные апдейты</h3>
+      <p>Ты сам пишешь «что делаешь?» каждому. Это не менеджмент, это нянька.</p>
+    </div>
+  </div>
+  <div class="page-num">02 / 08</div>
+</section>
+
+<!-- SLIDE 3: WHAT ANDREY DOES -->
+<section class="slide slide-3">
+  <div class="bg-grid"></div>
+  <div class="bg-lines"></div>
+  <span class="slide-label">Как работает</span>
+  <h2>День с Андреем</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot">🌅</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-time">Утром</div>
+        <h3>Персональный брифинг</h3>
+        <p>Читает задачи каждого участника и пишет в чат что важно сделать сегодня. Не общий список — конкретно по человеку.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot">☀️</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-time">Днём</div>
+        <h3>Проверка активности</h3>
+        <p>Спрашивает кто что делает прямо сейчас. Молчишь — тегает. Объясняет что молчание не засчитывается.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot">🌙</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-time">Вечером</div>
+        <h3>Разбор полётов</h3>
+        <p>Собирает отчёты, сравнивает с планом, даёт фидбек по каждому. Не сдал — штраф в базе и публичное уведомление.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot">📊</div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-time">В конце недели</div>
+        <h3>Итоговая сводка</h3>
+        <p>Кто что закрыл, где просели, кто чаще не сдавал. Рекомендации на следующую неделю.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">03 / 08</div>
+</section>
+
+<!-- SLIDE 4: EVENING REPORT -->
+<section class="slide slide-4">
+  <div class="bg-grid"></div>
+  <span class="slide-label">Вечерний разбор</span>
+  <h2>Отчёт без прикрас</h2>
+  <div class="report-card">
+    <div class="report-header">
+      <div class="bot-avatar">🤖</div>
+      <div class="bot-info">
+        <strong>Андрей</strong>
+        <span>Вечерний отчёт · команда</span>
+      </div>
+      <span class="time">21:00</span>
+    </div>
+    <div class="report-message">
+      <p>📊 <strong>Итоги дня</strong></p><br>
+      <p><span class="person-name">@marina</span> — <span class="done">✓ закрыла 3/3 задачи</span>. Отлично, продолжай в том же ритме.</p><br>
+      <p><span class="person-name">@dmitry</span> — <span class="miss">✗ сдал 1/4 задачи</span>. Зафиксирован пропуск. Штраф +1. Это уже второй раз на этой неделе.</p><br>
+      <p><span class="person-name">@alex</span> — <span class="done">✓ 2/2</span>, но отчёт пришёл в 20:48. Просьба укладываться до 20:00.</p>
+    </div>
+    <div class="report-tags">
+      <span class="rtag green">✓ Закрыто: 6 задач</span>
+      <span class="rtag red">✗ Просрочено: 3</span>
+      <span class="rtag blue">Завтра: 9 задач</span>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">87%</div>
+      <div class="stat-label">выполнение плана</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">0</div>
+      <div class="stat-label">тихих нарушений</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">5 мин</div>
+      <div class="stat-label">на весь сбор данных</div>
+    </div>
+  </div>
+  <div class="page-num">04 / 08</div>
+</section>
+
+<!-- SLIDE 5: TELEGRAM -->
+<section class="slide slide-5">
+  <div class="bg-grid"></div>
+  <div class="left">
+    <span class="slide-label">Где живёт</span>
+    <h2>Прямо<br>в Telegram</h2>
+    <p style="font-size:17px; color: var(--muted); line-height:1.7; max-width:420px;">
+      Никаких новых приложений. Никаких логинов и онбординга. Андрей просто пишет в чат где уже сидит вся команда.
+    </p>
+    <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 20px;">
+        <span style="font-size:20px;">📱</span>
+        <span style="font-size:14px; font-weight:600;">Telegram Bot</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 20px;">
+        <span style="font-size:20px;">👥</span>
+        <span style="font-size:14px; font-weight:600;">Групповой чат</span>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="tg-mockup">
+      <div class="tg-header">
+        <div class="tg-avatar">А</div>
+        <div class="tg-info">
+          <strong>Андрей</strong>
+          <span>онлайн</span>
+        </div>
+      </div>
+      <div class="tg-messages">
+        <div class="tg-msg bot">
+          <span class="highlight">Доброе утро, команда!</span><br>
+          Сегодня у нас 12 активных задач. Смотрим по каждому 👇
+          <span class="tg-time">09:00</span>
+        </div>
+        <div class="tg-msg bot">
+          <span class="highlight">@marina</span> — сегодня приоритет: финализировать макет и отправить клиенту.
+          <span class="tg-time">09:00</span>
+        </div>
+        <div class="tg-msg bot">
+          Уже 14:00, а от <span class="warn">@dmitry</span> нет апдейта. Напоминаю: молчание не засчитывается 🔔
+          <span class="tg-time">14:00</span>
+        </div>
+        <div class="tg-msg bot">
+          <span class="highlight">Итоги дня:</span> 8/12 задач закрыто. Разбор через 5 минут 📊
+          <span class="tg-time">20:55</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">05 / 08</div>
+</section>
+
+<!-- SLIDE 6: INTEGRATIONS -->
+<section class="slide slide-6">
+  <div class="bg-grid"></div>
+  <span class="slide-label">Интеграции</span>
+  <h2>Подключается к вашему<br>таск-трекеру</h2>
+  <div class="integrations-grid">
+    <div class="int-card">
+      <div class="int-icon" style="background:rgba(0,0,0,0.3);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" width="36" height="36" alt="Notion" style="border-radius:8px;" onerror="this.style.display='none'; this.parentNode.innerHTML='📝'">
+      </div>
+      <h4>Notion</h4>
+      <p>Базы данных, страницы</p>
+    </div>
+    <div class="int-card">
+      <div class="int-icon" style="background:rgba(0,82,204,0.2);">
+        <img src="https://cdn.worldvectorlogo.com/logos/trello.svg" width="36" height="36" alt="Trello" onerror="this.style.display='none'; this.parentNode.innerHTML='🟦'">
+      </div>
+      <h4>Trello</h4>
+      <p>Канбан-доски</p>
+    </div>
+    <div class="int-card">
+      <div class="int-icon" style="background:rgba(255,99,64,0.15);">
+        <span style="font-size:28px;">🏢</span>
+      </div>
+      <h4>Bitrix24</h4>
+      <p>CRM и задачи</p>
+    </div>
+    <div class="int-plus">
+      <div class="plus-icon">+</div>
+      <p>и другие<br>таск-трекеры</p>
+    </div>
+  </div>
+  <p style="margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 600px; line-height: 1.7;">
+    Андрей читает задачи, понимает что актуально сегодня и на этой основе строит утренний брифинг и вечерний разбор.
+  </p>
+  <div class="page-num">06 / 08</div>
+</section>
+
+<!-- SLIDE 7: WHO NEEDS ANDREY -->
+<section class="slide slide-7">
+  <div class="bg-grid"></div>
+  <span class="slide-label">Кому подойдёт</span>
+  <h2>Любой команде<br>где есть задачи</h2>
+  <div class="use-cases">
+    <div class="use-case">
+      <div class="use-icon">🌍</div>
+      <div class="use-text">
+        <h3>Распределённые команды</h3>
+        <p>Особенно полезен если люди в разных городах и часовых поясах. Андрей создаёт общий ритм.</p>
+      </div>
+    </div>
+    <div class="use-case">
+      <div class="use-icon">⚡</div>
+      <div class="use-text">
+        <h3>Стартапы и агентства</h3>
+        <p>Нет HR и тимлида на каждый проект? Андрей берёт на себя операционный контроль.</p>
+      </div>
+    </div>
+    <div class="use-case">
+      <div class="use-icon">👤</div>
+      <div class="use-text">
+        <h3>От двух человек</h3>
+        <p>Работает даже с маленькими командами. Минимум два участника — и Андрей уже полезен.</p>
+      </div>
+    </div>
+    <div class="use-case">
+      <div class="use-icon">🚀</div>
+      <div class="use-text">
+        <h3>Занятые менеджеры</h3>
+        <p>Если нет времени контролировать вручную, Андрей делает это сам — каждый день, без выходных.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">07 / 08</div>
+</section>
+
+<!-- SLIDE 8: CTA -->
+<section class="slide slide-8">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <p class="slide-label" style="text-align:center;">Хочешь такого же?</p>
+    <div class="big-text">
+      Андрей открыт<br>
+      <span class="accent-line">к сотрудничеству</span>
+    </div>
+    <p class="sub-text">С вашей командой возможно будет добрее чем с нами. Пишите — обсудим детали.</p>
+    <a href="https://t.me/morozov_mnk" class="cta-btn">
+      <span>✈</span>
+      Написать напрямую
+      <span class="cta-handle">@morozov_mnk</span>
+    </a>
+    <p class="small-note">Telegram · Быстрый ответ</p>
+  </div>
+  <div class="page-num">08 / 08</div>
+</section>
+
+<style>
+  /* ── ANIMATION BASE STATES ── */
+  .anim {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .anim.from-left {
+    transform: translateX(-36px);
+  }
+  .anim.from-right {
+    transform: translateX(36px);
+  }
+  .anim.scale-in {
+    transform: scale(0.88) translateY(20px);
+  }
+  .anim.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* stagger delays */
+  .anim[data-delay="1"] { transition-delay: 0.1s; }
+  .anim[data-delay="2"] { transition-delay: 0.2s; }
+  .anim[data-delay="3"] { transition-delay: 0.32s; }
+  .anim[data-delay="4"] { transition-delay: 0.44s; }
+  .anim[data-delay="5"] { transition-delay: 0.56s; }
+  .anim[data-delay="6"] { transition-delay: 0.68s; }
+  .anim[data-delay="7"] { transition-delay: 0.80s; }
+
+  /* pulse glow on avatar when visible */
+  .avatar-circle.visible-glow {
+    animation: pulse 2s infinite, avatarAppear 0.8s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  @keyframes avatarAppear {
+    from { transform: scale(0.6); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  /* timeline line draw */
+  .timeline-line {
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .timeline-line.visible {
+    transform: scaleY(1);
+  }
+
+  /* tg mockup slide in */
+  .tg-mockup.anim {
+    transform: translateX(40px) rotate(2deg);
+  }
+  .tg-mockup.anim.visible {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  /* tg messages sequential appear */
+  .tg-msg {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .tg-msg.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* stat number count animation */
+  .stat-num[data-count] {
+    transition: none;
+  }
+
+  /* CTA button pop */
+  .cta-btn.anim {
+    transform: scale(0.9) translateY(16px);
+  }
+  .cta-btn.anim.visible {
+    transform: scale(1) translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // ── APPLY ANIM CLASSES TO ELEMENTS ──
+
+    // Slide 1
+    document.querySelector('.slide-1 .tag').classList.add('anim');
+    document.querySelector('.slide-1 h1').classList.add('anim');
+    document.querySelector('.slide-1 h1').setAttribute('data-delay','2');
+    document.querySelector('.slide-1 .desc').classList.add('anim');
+    document.querySelector('.slide-1 .desc').setAttribute('data-delay','3');
+    const av = document.querySelector('.avatar-circle');
+    av.classList.add('anim', 'scale-in');
+    av.setAttribute('data-delay','4');
+
+    // Slide 2
+    document.querySelector('.slide-2 .slide-label').classList.add('anim');
+    document.querySelector('.slide-2 h2').classList.add('anim');
+    document.querySelector('.slide-2 h2').setAttribute('data-delay','1');
+    document.querySelectorAll('.pain-card').forEach((el, i) => {
+      el.classList.add('anim');
+      el.setAttribute('data-delay', String(i + 2));
+    });
+
+    // Slide 3
+    document.querySelector('.slide-3 .slide-label').classList.add('anim');
+    document.querySelector('.slide-3 h2').classList.add('anim');
+    document.querySelector('.slide-3 h2').setAttribute('data-delay','1');
+    document.querySelectorAll('.timeline-item').forEach((el, i) => {
+      el.classList.add('anim');
+      el.setAttribute('data-delay', String(i + 2));
+    });
+    document.querySelectorAll('.timeline-line').forEach(el => el.classList.add('tl-line'));
+
+    // Slide 4
+    document.querySelector('.slide-4 .slide-label').classList.add('anim');
+    document.querySelector('.slide-4 h2').classList.add('anim');
+    document.querySelector('.slide-4 h2').setAttribute('data-delay','1');
+    document.querySelector('.report-card').classList.add('anim');
+    document.querySelector('.report-card').setAttribute('data-delay','2');
+    document.querySelectorAll('.stat-box').forEach((el, i) => {
+      el.classList.add('anim');
+      el.setAttribute('data-delay', String(i + 3));
+    });
+
+    // Slide 5
+    document.querySelector('.slide-5 .slide-label').classList.add('anim', 'from-left');
+    document.querySelector('.slide-5 h2').classList.add('anim', 'from-left');
+    document.querySelector('.slide-5 h2').setAttribute('data-delay','1');
+    document.querySelector('.slide-5 p').classList.add('anim', 'from-left');
+    document.querySelector('.slide-5 p').setAttribute('data-delay','2');
+    const tgBtns = document.querySelector('.slide-5 .left div[style]');
+    if (tgBtns) { tgBtns.classList.add('anim','from-left'); tgBtns.setAttribute('data-delay','3'); }
+    document.querySelector('.tg-mockup').classList.add('anim', 'from-right');
+    document.querySelector('.tg-mockup').setAttribute('data-delay','2');
+
+    // Slide 6
+    document.querySelector('.slide-6 .slide-label').classList.add('anim');
+    document.querySelector('.slide-6 h2').classList.add('anim');
+    document.querySelector('.slide-6 h2').setAttribute('data-delay','1');
+    document.querySelectorAll('.int-card, .int-plus').forEach((el, i) => {
+      el.classList.add('anim');
+      el.setAttribute('data-delay', String(i + 2));
+    });
+    const intNote = document.querySelector('.slide-6 > p');
+    if (intNote) { intNote.classList.add('anim'); intNote.setAttribute('data-delay','6'); }
+
+    // Slide 7
+    document.querySelector('.slide-7 .slide-label').classList.add('anim');
+    document.querySelector('.slide-7 h2').classList.add('anim');
+    document.querySelector('.slide-7 h2').setAttribute('data-delay','1');
+    document.querySelectorAll('.use-case').forEach((el, i) => {
+      el.classList.add('anim');
+      el.setAttribute('data-delay', String(i + 2));
+    });
+
+    // Slide 8
+    document.querySelector('.slide-8 .slide-label').classList.add('anim');
+    document.querySelector('.slide-8 .big-text').classList.add('anim');
+    document.querySelector('.slide-8 .big-text').setAttribute('data-delay','1');
+    document.querySelector('.slide-8 .sub-text').classList.add('anim');
+    document.querySelector('.slide-8 .sub-text').setAttribute('data-delay','2');
+    document.querySelector('.cta-btn').classList.add('anim');
+    document.querySelector('.cta-btn').setAttribute('data-delay','3');
+    document.querySelector('.slide-8 .small-note').classList.add('anim');
+    document.querySelector('.slide-8 .small-note').setAttribute('data-delay','4');
+
+    // ── INTERSECTION OBSERVER ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+    // Timeline lines observer
+    const lineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseFloat(entry.target.closest('.timeline-item')?.getAttribute('data-delay') || 0) * 100;
+          setTimeout(() => entry.target.classList.add('visible'), delay + 400);
+          lineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.tl-line').forEach(el => lineObserver.observe(el));
+
+    // Telegram messages sequential appear
+    const tgMsgs = document.querySelectorAll('.tg-msg');
+    const msgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tgMsgs.forEach((msg, i) => {
+            setTimeout(() => msg.classList.add('visible'), 600 + i * 300);
+          });
+          msgObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (tgMsgs[0]) msgObserver.observe(tgMsgs[0]);
+
+    // Stat counter animation
+    document.querySelectorAll('.stat-num').forEach(el => {
+      const text = el.textContent.trim();
+      const numMatch = text.match(/[\d]+/);
+      if (!numMatch) return;
+
+      const target = parseInt(numMatch[0]);
+      const suffix = text.replace(numMatch[0], '');
+      el.textContent = '0' + suffix;
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          let start = 0;
+          const duration = 1200;
+          const step = (timestamp) => {
+            if (!start) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          setTimeout(() => requestAnimationFrame(step), 400);
+          counterObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.5 });
+
+      counterObserver.observe(el);
+    });
+
+  });
+</script>
+</body>
+</html>
